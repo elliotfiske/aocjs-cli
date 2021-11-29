@@ -9,7 +9,7 @@ export default async (): Promise<string[]> => {
   const day: string = (matchExp !== null ? matchExp[0] : '1')
 
   const text = await load(year, day)
-  return text.split(/\r?\n/)
+  return text.trim().split(/\r?\n/)
 }
 
 async function load (year: string, day: string): Promise<string> {
