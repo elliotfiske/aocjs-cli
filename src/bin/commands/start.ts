@@ -8,13 +8,13 @@ export const command = 'start <day>'
 
 export const desc = 'Executes given day'
 
-export function builder (yargs: Argv): any {
+export function builder(yargs: Argv): any {
   return yargs.positional('day', {
     type: 'string'
   })
 }
 
-export function handler (argv: {day: string}): void {
+export function handler(argv: { day: string }): void {
   /**
    * TODO:
    * - validate argv.day as /day[0-9]+/i
@@ -37,13 +37,13 @@ export function handler (argv: {day: string}): void {
           const { exec, ext } =
             compiler === 'js'
               ? {
-                exec: 'node',
-                ext: 'js,mjs,txt'
-              }
+                  exec: 'node',
+                  ext: 'js,mjs,txt'
+                }
               : {
-                exec: 'ts-node',
-                ext: 'ts,txt'
-              }
+                  exec: 'ts-node',
+                  ext: 'ts,txt'
+                }
 
           nodemon({
             // script: 'node_modules/@aocjs/cli/dist/src/lib/run.js',
@@ -51,11 +51,14 @@ export function handler (argv: {day: string}): void {
             watch: ['data', 'src'],
             exec,
             ext
-          }).on('start', () => {
-            console.log(' ')
-          }).on('restart', () => {
-            console.clear()
           })
+            .on('start', () => {
+              console.log('started!')
+            })
+            .on('restart', () => {
+              console.clear()
+              console.log('restarted!')
+            })
         })
         .catch((e) => console.log(e))
     })

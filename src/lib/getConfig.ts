@@ -10,7 +10,6 @@ export class Config {
 
   public compiler: 'js' | 'ts' = 'js'
   public session: string | null = null
-  public saveFetched: boolean = false
 
   public constructor (init?: Partial<Config>) {
     Object.assign(this, init)
