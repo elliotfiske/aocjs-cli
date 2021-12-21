@@ -41,7 +41,7 @@ export function handler(argv: { day: string }): void {
                   ext: 'js,mjs,txt'
                 }
               : {
-                  exec: 'ts-node',
+                  exec: 'node --inspect-brk=127.0.0.1:9230 -r ts-node/register',
                   ext: 'ts,txt'
                 }
 
@@ -51,14 +51,9 @@ export function handler(argv: { day: string }): void {
             watch: ['data', 'src'],
             exec,
             ext
+          }).on('restart', () => {
+            console.clear()
           })
-            .on('start', () => {
-              console.log('started!')
-            })
-            .on('restart', () => {
-              console.clear()
-              console.log('restarted!')
-            })
         })
         .catch((e) => console.log(e))
     })

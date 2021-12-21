@@ -1,10 +1,7 @@
-function part1 (input: Array<string>) {
-}
+// import _ = require('lodash')
 
-function part2 (input: Array<string>) {
-}
+function part1(lines: Array<string>) {}
 
-export {
-  part1,
-  part2
-}
+function part2(lines: Array<string>) {}
+
+export { part1, part2 }

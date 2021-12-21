@@ -58,6 +58,7 @@ import(process.cwd() + `/src/${year}/${day}.${compiler}`)
         }
       })
 
+      rl.setPrompt('Type [1] or [2] to submit part 1 or 2 > ')
       rl.prompt()
     }
   )

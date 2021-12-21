@@ -1,4 +1,6 @@
 import fetch from 'node-fetch'
+import { mkdir, writeFile } from 'fs/promises'
+import { resolve, dirname } from 'path'
 
 export const submit = async (
   str: string,
@@ -11,10 +13,6 @@ export const submit = async (
   const day: string = matchExp !== null ? matchExp[0] : '1'
 
   const { session }: { session: string } = JSON.parse(process.env.CONFIG ?? '')
-
-  console.log(
-    `https://adventofcode.com/${year}/day/${day}/answer    ${session}`
-  )
 
   const urlencoded = new URLSearchParams()
   urlencoded.append('level', part)
@@ -35,7 +33,16 @@ export const submit = async (
   if (response.ok) {
     const result = await response.text()
     console.log(result)
-    return true
+
+    const filePath = resolve(
+      process.cwd(),
+      `./src/${year}/attempts/day${day}/part${part}/${str}.html`
+    )
+
+    await mkdir(dirname(filePath), { recursive: true })
+    await writeFile(filePath, result, 'utf8')
+
+    return result.includes("That's the right answer")
   }
 
   throw new Error(`Error when trying to submit... ${JSON.stringify(response)}`)
