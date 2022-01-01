@@ -8,7 +8,7 @@ file_blobs:
   src/lib/data/submit.ts: b274f5952c596745f41041746ba777a0b9f1addc
 ---
 
-Here we will discuss how we access the Advent of Code API endpoints for getting the puzzle input and submitting your answers.
+Here we will discuss how we access the Advent of Code API endpoints for getting the puzzle input and submitting answers.
 
 # fetch.ts
 
@@ -18,7 +18,7 @@ This is the only exported function from this file. It calls `load`[<sup id="Z1i1
 
 So if you had a file like
 
-`100   200   abc`
+`100\n200\nabc`
 
 you would end up with an array like `["100", "200", "abc"]`
 <!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
