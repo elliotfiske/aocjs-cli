@@ -10,11 +10,12 @@ export default async (): Promise<string[]> => {
   const matchExp = (process.env.DAY ?? 'day1').match(/\d+/)
   const day: string = matchExp !== null ? matchExp[0] : '1'
 
-  const text = await load(year, day)
+  const text = await load_in_a_cool_way(year, day)
   return text.trim().split(/\r?\n/)
 }
 
-async function load(year: string, day: string): Promise<string> {
+// eslint-disable-next-line @typescript-eslint/naming-convention
+async function load_in_a_cool_way(year: string, day: string): Promise<string> {
   const filePath = resolve(process.cwd(), `./data/${year}/day${day}.txt`)
 
   if (existsSync(filePath)) {
