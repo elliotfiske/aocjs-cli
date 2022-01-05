@@ -2,7 +2,7 @@
 id: fhay1
 name: Birds-eye View
 file_version: 1.0.2
-app_version: 0.7.0-1
+app_version: 0.7.1-1
 ---
 
 `aocjs-cli` is a tool to help you write and submit answers for [Advent of Code](https://adventofcode.com/).
@@ -50,6 +50,14 @@ To authenticate to these endpoints, you grab your session token with the Chrome 
 # Code
 
 There are 2 main sections of this codebase:
+
+1.  The command-line interface, that watches the input files and recompiles+runs if necessary:
+    
+    [yargs, npx, and nodemon](yargs-npx-and-nodemon.1ns62.sw.md)
+    
+2.  The part of the code that interacts with Advent of Code, fetching input and submitting answers:
+    
+    [Fetch and Submit](fetch-and-submit.azi6j.sw.md)
 
 <br/>
 
