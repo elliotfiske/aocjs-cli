@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'fs'
 
 const validFiles = ['.aocrc', '.aocrc.json']
 
-export class Config {
+export class ConfigRenamed {
   public year: number =
   new Date().getMonth() === 12
     ? new Date().getFullYear()
