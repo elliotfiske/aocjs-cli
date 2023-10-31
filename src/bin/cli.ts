@@ -7,7 +7,7 @@ import { getConfig } from '../lib'
 import { version } from '../../package.json'
 
 // eslint-disable-next-line no-void
-void yargs(hideBin(process.argv))
+void yargs(hideBinRenamed(process.argv))
   .command(start)
   .middleware(() => {
     process.env.CONFIG = JSON.stringify(getConfig())
