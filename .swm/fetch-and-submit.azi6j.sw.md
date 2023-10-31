@@ -2,8 +2,9 @@
 id: azi6j
 name: Fetch and Submit
 file_version: 1.0.2
-app_version: 0.7.0-1
+app_version: 0.7.1-1
 file_blobs:
+  package.json: 840a5d30b1d15e438adc87742c04df4c0c06f16a
   src/lib/data/fetch.ts: 28f53e6c50892bb8fb9d4df8d42aeeb1a12843fc
   src/lib/data/submit.ts: b274f5952c596745f41041746ba777a0b9f1addc
 ---
@@ -11,6 +12,28 @@ file_blobs:
 Here we will discuss how we access the Advent of Code API endpoints for getting the puzzle input and submitting answers.
 
 # fetch.ts
+
+<br/>
+
+`scripts`[<sup id="Z10AiCf">↓</sup>](#f-Z10AiCf) is something
+<!-- NOTE-swimm-snippet: the lines below link your snippet to Swimm -->
+### 📄 package.json
+```json
+⬜ 5        "bin": {
+⬜ 6          "aoc": "dist/src/bin/cli.js"
+⬜ 7        },
+🟩 8        "scripts": {
+🟩 9          "build": "tsc",
+🟩 10         "lint": "eslint . --fix",
+🟩 11         "preversion": "npm run lint",
+🟩 12         "version": "git add -A .",
+🟩 13         "postversion": "git push && git push --tags",
+🟩 14         "prepare": "npm run build"
+🟩 15       },
+⬜ 16       "keywords": [
+⬜ 17         "advent of code",
+⬜ 18         "aoc",
+```
 
 <br/>
 
@@ -124,6 +147,11 @@ For instance, if we submit `100` and get HTML back with "That's not the right an
 <span id="f-Z1i1CgX">load</span>[^](#Z1i1CgX) - "src/lib/data/fetch.ts" L13
 ```typescript
   const text = await load(year, day)
+```
+
+<span id="f-Z10AiCf">scripts</span>[^](#Z10AiCf) - "package.json" L8
+```json
+  "scripts": {
 ```
 
 <br/>
